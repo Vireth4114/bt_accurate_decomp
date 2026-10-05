@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BounceTales" default="jar" basedir=".">
+    <property name="jdk6.dir" value="C:/Program Files/Java/jdk1.6.0_03" />
+    <property name="src.dir" value="src" />
+    <property name="res.dir" value="res" />
+    <property name="build.dir" value="build" />
+    <property name="dist.dir" value="dist" />
+    <property name="s40.dir" value="C:/Nokia/Devices/S40_5th_Edition_SDK_Feature_Pack_1" />
+    <property name="kemulator.dir" value="${user.home}/Documents/kemnnmod" />
+
+    <path id="classpath">
+        <pathelement location="${s40.dir}/lib/cldc11.jar" />
+        <pathelement location="${s40.dir}/lib/jsr172.jar" />
+        <pathelement location="${s40.dir}/lib/jsr211.jar" />
+        <pathelement location="${s40.dir}/lib/jsr75.jar" />
+        <pathelement location="${s40.dir}/lib/jsr82.jar" />
+        <pathelement location="${s40.dir}/lib/midp20.jar" />
+        <pathelement location="${s40.dir}/lib/nokiaui.jar" />
+        <pathelement location="${s40.dir}/lib/satsa-apdu.jar" />
+        <pathelement location="${s40.dir}/lib/satsa-crypto.jar" />
+        <pathelement location="${s40.dir}/lib/wma20.jar" />
+        <pathelement location="${s40.dir}/lib/mmapi12.jar" />
+    </path>
+
+    <target name="clean">
+        <delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${build.dir}" />
+        <javac
+            srcdir="${src.dir}"
+            destdir="${build.dir}"
+            source="1.3"
+            target="1.3"
+            encoding="UTF-8"
+            includeantruntime="false"
+            fork="true"
+            executable="${jdk6.dir}/bin/javac.exe">
+            <classpath refid="classpath" />
+        </javac>
+    </target>
+
+    <target name="resources" depends="compile">
+        <copy todir="${build.dir}">
+            <fileset dir="${res.dir}"/>
+        </copy>
+    </target>
+
+    <target name="jar" depends="compile,resources">
+        <mkdir dir="${dist.dir}" />
+        <jar
+            destfile="${dist.dir}/BounceTales.jar"
+            manifest="META-INF/MANIFEST.MF">
+            <fileset dir="${build.dir}" />
+        </jar>
+    </target>
+
+    <target name="bytecode" depends="jar">
+        <exec executable="${java.home}/bin/javap.exe"
+            dir="${build.dir}"
+            failonerror="true">
+            <arg value="-p"/>
+            <arg value="-s"/>
+            <arg value="-c"/>
+            <arg value="*.class"/>
+            <redirector output="${basedir}/built_javap.txt" />
+        </exec>
+    </target>
+
+    <target name="build" depends="clean,jar,bytecode" />
+
+    <target name="run" depends="build">
+        <exec executable="${kemulator.dir}/jre/bin/java"
+            dir="${kemulator.dir}"
+            failonerror="true">
+
+            <arg value="-jar"/>
+            <arg value="KEmulator.jar"/>
+            <arg value="-jar"/>
+            <arg value="${basedir}/dist/BounceTales.jar"/>
+        </exec>
+    </target>
+</project>
