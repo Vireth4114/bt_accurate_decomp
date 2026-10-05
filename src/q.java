@@ -178,7 +178,7 @@ public final class q {
 
                String var11 = var2.toString().trim().substring(15);
                Vector var7 = new Vector();
-               boolean var8 = false;
+               int var9;
 
                while ((var9 = var11.indexOf("@")) != -1) {
                   var7.addElement(var11.substring(0, var9));

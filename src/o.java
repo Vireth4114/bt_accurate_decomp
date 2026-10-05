@@ -293,15 +293,15 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
 
          int var10001 = var10 + 1;
          String var29 = var0.substring(var17, var18);
-         var14 = var10001;
+         int notVar14 = var10001;
          var7 = var7;
-         if (var7.length <= var14) {
+         if (var7.length <= notVar14) {
             String[] var30 = new String[var7.length + 5];
             System.arraycopy(var7, 0, var30, 0, var7.length);
             var7 = var30;
          }
 
-         var7[var14] = var29;
+         var7[notVar14] = var29;
          var7 = var7;
          var10++;
          if (var13 < var9 && var0.charAt(var13) == '\n') {
@@ -575,7 +575,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       return var0 < 0 ? false : a_ArrayZ != null && a_ArrayZ[var0];
    }
 
-   private static void method_a_DataInputStream_I_V(DataInputStream var0, int var1) {
+   private static void method_a_DataInputStream_I_V(DataInputStream var0, int var1) throws IOException {
       int var2 = 0;
 
       while (var2 < var1) {
@@ -583,7 +583,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       }
    }
 
-   private static byte[] method_a_InputStream_I_ArrayB(InputStream var0, int var1) {
+   private static byte[] method_a_InputStream_I_ArrayB(InputStream var0, int var1) throws IOException {
       if (var1 != -1) {
          byte[] var5 = new byte[var1];
          int var6 = 0;
@@ -608,8 +608,8 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
 
    private static void method_e_V() {
       if (c_ArrayString == null) {
-         Object var0 = null;
-         Object var1 = null;
+         short[] var0 = null;
+         short[] var1 = null;
 
          try {
             DataInputStream var2;
@@ -643,18 +643,18 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
             var1 = new short[var3];
 
             for (int var15 = 0; var15 < var3; var15++) {
-               ((Object[])var0)[var15] = var2.readShort();
-               ((Object[])var1)[var15] = var2.readShort();
+               var0[var15] = var2.readShort();
+               var1[var15] = var2.readShort();
             }
 
             var2.close();
 
-            for (int var16 = 0; var16 < ((Object[])var1).length; var16++) {
+            for (int var16 = 0; var16 < var1.length; var16++) {
                short var17;
-               if ((var2 = method_a_I_DataInputStream(var17 = (short)((Object[])var1)[var16])) != null) {
+               if ((var2 = method_a_I_DataInputStream(var17 = var1[var16])) != null) {
                   int var18 = 0;
 
-                  while (var18 < a_Arrayo.length && !a_Arrayo[var18].method_a_DataInputStream_I_Z(var2, (int)((Object[])var0)[var16])) {
+                  while (var18 < a_Arrayo.length && !a_Arrayo[var18].method_a_DataInputStream_I_Z(var2, var0[var16])) {
                      var18++;
                   }
 
@@ -672,7 +672,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       Vector var0 = new Vector();
 
       for (int var1 = 0; var1 < a_Vector.size(); var1++) {
-         int var2 = (Integer)a_Vector.elementAt(var1);
+         int var2 = ((Integer)a_Vector.elementAt(var1)).intValue();
          if (!a_ArrayZ[var2]) {
             int var3 = 0;
 
@@ -712,7 +712,6 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
          DataInputStream var22 = null;
          String var24 = null;
          int var26 = 0;
-
          for (int var27 = 0; var27 < var0.size(); var27++) {
             int[] var28;
             int var31 = (var28 = (int[])var0.elementAt(var27))[0];
@@ -733,17 +732,18 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
                }
             }
 
-            int var20 = 0;
+            boolean var20 = false;
             if (var28[1] == -1) {
                if (var33 == -1) {
                   var22 = new DataInputStream(a_MIDlet.getClass().getResourceAsStream("/" + var32));
                }
 
                for (int var35 = 0; var35 < a_Arrayo.length; var35++) {
-                  if ((var28 = (int[])a_Arrayo[var35].method_a_DataInputStream_I_I_I_Object(var34 != 0 ? var22 : null, var34, a_ArrayArrayS[var31][0], var31))
+                  Object notVar28;
+                  if ((notVar28 = a_Arrayo[var35].method_a_DataInputStream_I_I_I_Object(var34 != 0 ? var22 : null, var34, a_ArrayArrayS[var31][0], var31))
                      != null) {
-                     a_ArrayObject[var31] = var28;
-                     var20 = 1;
+                     a_ArrayObject[var31] = notVar28;
+                     var20 = true;
                      break;
                   }
                }
@@ -761,12 +761,12 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
                   boolean var37;
                   switch (var15) {
                      case 2:
-                        var20 = method_a_ArrayB_I_S((byte[])method_a_I_Object(var16), 0) + var17;
+                        int imgNo = method_a_ArrayB_I_S((byte[])method_a_I_Object(var16), 0) + var17;
                         if (var12 != null) {
                            byte[] var36 = method_a_InputStream_I_ArrayB(var12, var14);
-                           a_ArrayImage[var20] = Image.createImage(var36, 0, var36.length);
+                           a_ArrayImage[imgNo] = Image.createImage(var36, 0, var36.length);
                         } else {
-                           a_ArrayImage[var20] = Image.createImage("/" + var13);
+                           a_ArrayImage[imgNo] = Image.createImage("/" + var13);
                         }
 
                         var37 = true;
@@ -809,11 +809,11 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
          if (var22 != null) {
             var22.close();
          }
-      } catch (IOException var18) {
+      } catch (Exception var18) {
       }
 
       for (int var23 = 0; var23 < a_Vector.size(); var23++) {
-         int var25 = (Integer)a_Vector.elementAt(var23);
+         int var25 = ((Integer)a_Vector.elementAt(var23)).intValue();
          a_ArrayZ[var25] = true;
       }
 
@@ -822,7 +822,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
 
    private static void method_g_V() {
       for (int var0 = 0; var0 < b_Vector.size(); var0++) {
-         int var1 = (Integer)b_Vector.elementAt(var0);
+         int var1 = ((Integer)b_Vector.elementAt(var0)).intValue();
          if (a_ArrayZ[var1]) {
             short var2 = a_ArrayArrayS[var1][0];
 
@@ -835,7 +835,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
                   case 2:
                      byte[] var9 = (byte[])a_ArrayObject[var6];
 
-                     for (byte var11 = 0; var11 < a_ArrayS.length; var11 += 2) {
+                     for (int var11 = 0; var11 < a_ArrayS.length; var11 += 2) {
                         if (a_ArrayS[var11] == var6) {
                            a_ArrayS[var11] = -1;
                            a_ArrayS[var11 + 1] = -1;
@@ -845,7 +845,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
                      var5 = method_a_ArrayB_I_S(var9, 0);
                      short var14 = method_a_ArrayB_I_S(var9, 2);
 
-                     for (byte var7 = 0; var7 < a_ArrayB.length; var7 += 7) {
+                     for (int var7 = 0; var7 < a_ArrayB.length; var7 += 7) {
                         byte var8;
                         if ((var8 = a_ArrayB[var7 + 6]) >= var5 && var8 < var14) {
                            for (int var16 = 0; var16 < 7; var16++) {
@@ -897,10 +897,9 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       return (short)(var0[var1] << 8 | var0[var1 + 1] & 0xFF);
    }
 
-   private static DataInputStream method_a_I_DataInputStream(int var0) {
+   private static DataInputStream method_a_I_DataInputStream(int var0) throws IOException {
       if (e_ArrayI[(var0 << 1) + 1] != 0) {
-         DataInputStream var1 = a_MIDlet.getClass().getResourceAsStream("/" + c_ArrayString[var0]);
-         var1 = new DataInputStream(var1);
+         DataInputStream var1 = new DataInputStream(a_MIDlet.getClass().getResourceAsStream("/" + c_ArrayString[var0]));
          if (e_ArrayI[var0 << 1] != -1) {
             method_a_DataInputStream_I_V(var1, e_ArrayI[var0 << 1]);
          }
@@ -911,7 +910,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       }
    }
 
-   public final boolean method_a_DataInputStream_I_Z(DataInputStream var1, int var2) {
+   public final boolean method_a_DataInputStream_I_Z(DataInputStream var1, int var2) throws IOException {
       switch (var2) {
          case -1:
             a_ArrayS = new short[428];
@@ -957,7 +956,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       return false;
    }
 
-   public final Object method_a_DataInputStream_I_I_I_Object(DataInputStream var1, int var2, int var3, int var4) {
+   public final Object method_a_DataInputStream_I_I_I_Object(DataInputStream var1, int var2, int var3, int var4) throws IOException {
       switch (var3) {
          case 2:
             byte var10 = var1.readByte();
@@ -1245,7 +1244,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       byte var3;
       byte[] var5;
       int var4 = (var3 = (var5 = (byte[])a_ArrayObject[a_ArrayS[var0 - 326 << 1]])[var2++]) & 3;
-      var3 = (var3 & 4) != 0 ? 2 : 1;
+      var3 = (byte)((var3 & 4) != 0 ? 2 : 1);
       if (var4 == 1) {
          var2 += var3 << 2;
          short var12 = method_a_ArrayB_I_S(var5, var2);
@@ -1388,7 +1387,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       }
    }
 
-   public final void method_run_V() {
+   public final void run() {
       try {
          if (a_Z) {
             synchronized (a_Object) {
@@ -1574,7 +1573,6 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
 
    private void method_j_I_V(int var1) {
       k_I = var1;
-      this = this;
       Graphics var3 = a_o.getGraphics();
       this.method_b_Graphics_V(var3);
       a_o.flushGraphics();
@@ -1877,6 +1875,6 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       this.method_b_Graphics_V(var1);
    }
 
-   public final void method_commandAction_Command_Displayable_V(Command var1, Displayable var2) {
+   public final void commandAction(Command var1, Displayable var2) {
    }
 }

@@ -231,13 +231,13 @@ public class j {
    }
 
    public final j method_a_j() {
-      this = this;
+      j current = this;
 
-      while (this.c_j != null) {
-         this = this.c_j;
+      while (current.c_j != null) {
+         current = current.c_j;
       }
 
-      return this;
+      return current;
    }
 
    public void method_a_V() {
@@ -537,10 +537,10 @@ public class j {
          f_d.c_I = var2;
          f_d.f_I = var3;
       } else {
-         var0 = var2 - f_d.c_I;
+         int newvar = var2 - f_d.c_I;
          var2 = var3 - f_d.f_I;
-         if (Math.abs(var0) < 327680) {
-            var0 = 0;
+         if (Math.abs(newvar) < 327680) {
+            newvar = 0;
          }
 
          if (Math.abs(var2) < 327680) {
@@ -550,7 +550,7 @@ public class j {
          for (a_I += var1; a_I >= 15; a_I -= 15) {
             f_d.c_I = f_d.c_I + n_I * 15;
             f_d.f_I = f_d.f_I + o_I * 15;
-            n_I = n_I + (15 * p_I * (var0 >> 6) >> 14);
+            n_I = n_I + (15 * p_I * (newvar >> 6) >> 14);
             o_I = o_I + (15 * p_I * (var2 >> 6) >> 14);
             n_I = n_I - (15 * q_I * n_I >> 14);
             o_I = o_I - (15 * q_I * o_I >> 14);

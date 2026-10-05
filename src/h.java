@@ -1,5 +1,6 @@
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
+import java.io.IOException;
 import java.util.Vector;
 import javax.microedition.lcdui.Graphics;
 
@@ -68,7 +69,7 @@ public final class h {
                this.a_Vector.elementAt(var1);
             }
 
-            if ((this = this).b_I != -1) {
+            if (this.b_I != -1) {
                var2 = (var1 = this.method_a_I_I(this.b_I)) + ((f)this.a_Vector.elementAt(this.b_I)).method_b_I();
                int var3 = this.method_e_I();
                if (var1 < this.c_I) {
@@ -200,7 +201,7 @@ public final class h {
       int var3 = 0;
       switch (var1) {
          case 1:
-            if ((this = this).a_Vector.size() != 0) {
+            if (this.a_Vector.size() != 0) {
                if (this.b_I == -1) {
                   var1 = -1;
 
@@ -289,7 +290,7 @@ public final class h {
 
             return;
          case 2:
-            if ((this = this).a_Vector.size() != 0) {
+            if (this.a_Vector.size() != 0) {
                var1 = this.method_d_I();
                int var13 = this.method_e_I();
                if (this.b_I == -1) {
@@ -645,7 +646,7 @@ public final class h {
       this.b_ArrayI = method_a_I_I_ArrayI_I_ArrayI(var1, var2, this.b_ArrayI, 2);
    }
 
-   private static int[] method_a_DataInputStream_ArrayI_I_I_ArrayI(DataInputStream var0, int[] var1, int var2, int var3) {
+   private static int[] method_a_DataInputStream_ArrayI_I_I_ArrayI(DataInputStream var0, int[] var1, int var2, int var3) throws IOException {
       int var4 = var0.readInt();
       int var10 = var1.length;
       if (var4 == 0) {

@@ -861,10 +861,10 @@ public final class m {
                o.method_b_I_I_I_I_V(var1, var9, 442, var14);
             } else if (m_I <= 400 && m_I > 0) {
                int var28 = 0;
-               var28 = (boolean)0;
+               var28 = 0;
                int var35 = 0;
                int var10 = 0;
-               var10 = (boolean)0;
+               var10 = 0;
                var28 = var1 - 119 - 239 + 22;
                var35 = var1 + 120 + -30;
                var10 = var1 - 119 + 22;
@@ -1214,7 +1214,6 @@ public final class m {
          }
 
          if (this.i_I == 4) {
-            this = this;
             if (b_Z) {
                this.method_g_I_V(25);
                o.method_d_V();
@@ -1360,7 +1359,7 @@ public final class m {
                   short var4 = f_ArrayS[(e_I << 2) + 3];
                   boolean var5 = method_a_I_Z(13);
                   boolean var6 = method_a_Z();
-                  short var7;
+                  int var7;
                   if ((var7 = (short)(a_I / 1000)) < 1) {
                      var7 = 1;
                   }

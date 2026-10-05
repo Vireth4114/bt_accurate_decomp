@@ -64,30 +64,30 @@ public final class b {
          }
 
          try {
-            this.j_I = Integer.valueOf(var1.substring(0, var2[0]));
+            this.j_I = Integer.valueOf(var1.substring(0, var2[0])).intValue();
          } catch (Exception var9) {
          }
 
          try {
-            this.h_I = Integer.valueOf(var1.substring(var2[0] + 1, var2[1]));
+            this.h_I = Integer.valueOf(var1.substring(var2[0] + 1, var2[1])).intValue();
          } catch (Exception var8) {
             this.h_I = 0;
          }
 
          try {
-            this.i_I = Integer.valueOf(var1.substring(var2[1] + 1, var2[2]));
+            this.i_I = Integer.valueOf(var1.substring(var2[1] + 1, var2[2])).intValue();
          } catch (Exception var7) {
             this.i_I = 0;
          }
 
          try {
-            this.b_I = Integer.valueOf(var1.substring(var2[2] + 1, var2[3]));
+            this.b_I = Integer.valueOf(var1.substring(var2[2] + 1, var2[3])).intValue();
          } catch (Exception var6) {
             this.b_I = 0;
          }
 
          try {
-            this.c_I = Integer.valueOf(var1.substring(var2[3] + 1, var1.length()));
+            this.c_I = Integer.valueOf(var1.substring(var2[3] + 1, var1.length())).intValue();
          } catch (NumberFormatException var5) {
             this.c_I = 0;
             return;

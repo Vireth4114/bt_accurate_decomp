@@ -218,7 +218,7 @@ public final class g extends j {
                label308: {
                   byte[] var28 = var11.a_ArrayArrayB[var11.g_B];
                   g var15 = var11;
-                  byte var5;
+                  int var5;
                   switch (var5 = var28[0]) {
                      case 0:
                         short var25 = j.method_a_ArrayB_I_S(var28, 1);
@@ -233,11 +233,10 @@ public final class g extends j {
                         short var31 = j.method_a_ArrayB_I_S(var28, 1);
                         j var22;
                         if ((var22 = var15.method_a_j().method_a_S_j(var31)) != null) {
-                           r var23;
-                           var22 = var23 = var22;
+                           r var23 = (r)var22;
 
-                           for (int var32 = 0; var32 < var22.a_ArrayS.length; var32++) {
-                              short var52 = var22.a_ArrayS[var32];
+                           for (int var32 = 0; var32 < var23.a_ArrayS.length; var32++) {
+                              short var52 = var23.a_ArrayS[var32];
                               short var61 = -1;
                               short var72 = 0;
                               switch (var52) {
@@ -255,8 +254,8 @@ public final class g extends j {
                               }
 
                               if (var61 > -1) {
-                                 var22.b_ArrayS[var32] = var61;
-                                 var22.a_ArrayS[var32] = var72;
+                                 var23.b_ArrayS[var32] = var61;
+                                 var23.a_ArrayS[var32] = var72;
                               }
                            }
                         }
@@ -607,7 +606,7 @@ public final class g extends j {
                      case 29:
                         var5 = j.method_a_ArrayB_I_S(var28, 1);
                         j var6;
-                        if ((var6 = var15.method_a_j().method_a_S_j(var5)) == null) {
+                        if ((var6 = var15.method_a_j().method_a_S_j((short)var5)) == null) {
                            var79 = true;
                         } else {
                            int var7 = j.method_b_ArrayB_I_I(var28, 3);
@@ -647,7 +646,7 @@ public final class g extends j {
                         break label308;
                      case 30:
                         var5 = j.method_a_ArrayB_I_S(var28, 1);
-                        j.a_j = var15.method_a_j().method_a_S_j(var5);
+                        j.a_j = var15.method_a_j().method_a_S_j((short)var5);
                         var79 = true;
                         break label308;
                      case 31:
