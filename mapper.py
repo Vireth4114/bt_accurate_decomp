@@ -90,11 +90,11 @@ with open("mapping.tiny", "w") as file:
     for line in new_lines:
         print(line, file=file)
 
-os.system(f"java -jar tiny-remapper-0.14.1-fat.jar {input_jar} output.jar mapping.tiny obf named")
+os.system(f"java -jar jar-utils/tiny-remapper-0.14.1-fat.jar {input_jar} output.jar mapping.tiny obf named")
 os.system(f"unzip -o output.jar -d output_dir")
 if not os.path.exists("output_decompiled"):
     os.mkdir("output_decompiled")
-os.system(f"java -jar vineflower.jar output.jar output_decompiled")
+os.system(f"java -jar jar-utils/vineflower.jar output.jar output_decompiled")
 os.system(f"unzip -o output.jar -d input_dir")
 os.system(f"javap -p -s -c input_dir/*.class > raw_javap.txt")
 if not os.path.exists("src"):
