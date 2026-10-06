@@ -6153,7 +6153,7 @@ public final class d {
         40: putfield      #24                 // Field e_I:I
         43: return
 
-  public final java.lang.String method_toString_String();
+  public final java.lang.String toString();
     descriptor: ()Ljava/lang/String;
     Code:
          0: new           #68                 // class java/lang/String
@@ -6189,8 +6189,8 @@ public final class d {
         71: aload_0
         72: getfield      #36                 // Field f_I:I
         75: invokevirtual #75                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
-        78: invokevirtual #85                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
-        81: invokespecial #86                 // Method java/lang/String."<init>":(Ljava/lang/String;)V
+        78: invokevirtual #84                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+        81: invokespecial #85                 // Method java/lang/String."<init>":(Ljava/lang/String;)V
         84: areturn
 
   static {};
@@ -6198,8 +6198,8 @@ public final class d {
     Code:
          0: new           #2                  // class d
          3: dup
-         4: invokespecial #88                 // Method "<init>":()V
-         7: putstatic     #90                 // Field a_d:Ld;
+         4: invokespecial #87                 // Method "<init>":()V
+         7: putstatic     #89                 // Field a_d:Ld;
         10: return
 }
 public final class e extends j {
@@ -32944,7 +32944,7 @@ public final class o extends javax.microedition.lcdui.game.GameCanvas implements
             58   125   126   any
            126   129   126   any
 
-  public final void method_run_V();
+  public final void run();
     descriptor: ()V
     Code:
          0: getstatic     #663                // Field a_Z:Z
@@ -33967,7 +33967,7 @@ public final class o extends javax.microedition.lcdui.game.GameCanvas implements
         25: putstatic     #817                // Field a_C:C
         28: return
 
-  protected final void method_keyPressed_I_V(int);
+  protected final void keyPressed(int);
     descriptor: (I)V
     Code:
          0: iload_1
@@ -33975,7 +33975,7 @@ public final class o extends javax.microedition.lcdui.game.GameCanvas implements
          3: invokestatic  #822                // Method method_d_I_I_V:(II)V
          6: return
 
-  protected final void method_keyReleased_I_V(int);
+  protected final void keyReleased(int);
     descriptor: (I)V
     Code:
          0: iload_1
@@ -33983,21 +33983,21 @@ public final class o extends javax.microedition.lcdui.game.GameCanvas implements
          3: invokestatic  #822                // Method method_d_I_I_V:(II)V
          6: return
 
-  protected final void method_showNotify_V();
+  protected final void showNotify();
     descriptor: ()V
     Code:
          0: iconst_5
          1: invokestatic  #826                // Method method_h_I_V:(I)V
          4: return
 
-  protected final void method_hideNotify_V();
+  protected final void hideNotify();
     descriptor: ()V
     Code:
          0: iconst_4
          1: invokestatic  #826                // Method method_h_I_V:(I)V
          4: return
 
-  public final void method_paint_Graphics_V(javax.microedition.lcdui.Graphics);
+  public final void paint(javax.microedition.lcdui.Graphics);
     descriptor: (Ljavax/microedition/lcdui/Graphics;)V
     Code:
          0: aload_0
@@ -34005,7 +34005,7 @@ public final class o extends javax.microedition.lcdui.game.GameCanvas implements
          2: invokespecial #780                // Method method_b_Graphics_V:(Ljavax/microedition/lcdui/Graphics;)V
          5: return
 
-  public final void method_commandAction_Command_Displayable_V(javax.microedition.lcdui.Command, javax.microedition.lcdui.Displayable);
+  public final void commandAction(javax.microedition.lcdui.Command, javax.microedition.lcdui.Displayable);
     descriptor: (Ljavax/microedition/lcdui/Command;Ljavax/microedition/lcdui/Displayable;)V
     Code:
          0: return

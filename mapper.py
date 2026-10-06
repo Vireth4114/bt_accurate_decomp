@@ -31,6 +31,8 @@ def split_part(part):
     return rsl
 
 def get_name(type, descriptor, name):
+    if len(name) > 2:
+        return name
     parsed = descriptor.replace('(', '').replace(')', '')
     first, *classes = parsed.split('L')
     next_class_is_array = False
@@ -101,8 +103,10 @@ if not os.path.exists("src"):
     os.mkdir("src")
 if not os.path.exists("res"):
     os.mkdir("res")
-os.system(f"mv output_decompiled/*.java src")
+if os.path.exists("META-INF"):
+    shutil.rmtree("META-INF")
 os.system(f"mv output_decompiled/META-INF .")
+os.system(f"mv output_decompiled/*.java src")
 os.system(f"mv output_decompiled/* res")
 os.remove("output.jar")
 os.remove("mapping.tiny")

@@ -1855,23 +1855,23 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
       }
    }
 
-   protected final void method_keyPressed_I_V(int var1) {
+   protected final void keyPressed(int var1) {
       method_d_I_I_V(var1, 9);
    }
 
-   protected final void method_keyReleased_I_V(int var1) {
+   protected final void keyReleased(int var1) {
       method_d_I_I_V(var1, 10);
    }
 
-   protected final void method_showNotify_V() {
+   protected final void showNotify() {
       method_h_I_V(5);
    }
 
-   protected final void method_hideNotify_V() {
+   protected final void hideNotify() {
       method_h_I_V(4);
    }
 
-   public final void method_paint_Graphics_V(Graphics var1) {
+   public final void paint(Graphics var1) {
       this.method_b_Graphics_V(var1);
    }
 

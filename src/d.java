@@ -81,7 +81,7 @@ public final class d {
       this.e_I = var2;
    }
 
-   public final String method_toString_String() {
+   public final String toString() {
       return new String(this.a_I + " " + this.b_I + " " + this.c_I + "\n" + this.d_I + " " + this.e_I + " " + this.f_I);
    }
 }
