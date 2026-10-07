@@ -251,7 +251,8 @@ public final class c extends j {
             var3 = var6.k_F + var3;
          }
 
-         var12 = (float)Math.sqrt(var4 * var4 + var3 * var3) / a_ArrayI[var6.d_I] * var12;
+         float varsqrt = (float)Math.sqrt(var4 * var4 + var3 * var3);
+         var12 = varsqrt / a_ArrayI[var6.d_I] * var12;
          if (var6.q_F * var3 - var4 * var6.r_F > 0.0F) {
             var12 = -var12;
          }

@@ -6,7 +6,7 @@
     <property name="build.dir" value="build" />
     <property name="dist.dir" value="dist" />
     <property name="s40.dir" value="C:/Nokia/Devices/S40_5th_Edition_SDK_Feature_Pack_1" />
-    <property name="kemulator.dir" value="${user.home}/Documents/kemnnmod" />
+    <property name="kemulator.dir" value="${user.home}/Documents/KEmulator" />
 
     <path id="classpath">
         <pathelement location="${s40.dir}/lib/cldc11.jar" />
@@ -66,6 +66,12 @@
             <arg value="-c"/>
             <arg value="*.class"/>
             <redirector output="${basedir}/built_javap.txt" />
+        </exec>
+        <exec executable="python"
+            dir="${basedir}"
+            failonerror="true">
+            <arg value="remove_index_and_branches.py"/>
+            <arg value="built_javap.txt"/>
         </exec>
     </target>
 

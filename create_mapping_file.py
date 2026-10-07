@@ -1,15 +1,7 @@
 import re
-import os
 import sys
-import shutil
 
 input_jar = sys.argv[1] if len(sys.argv) > 1 else exit("Please provide the input JAR file as an argument.")
-
-os.system(f"unzip -o {input_jar} -d input_dir")
-
-os.system(f"javap -p -s -c input_dir/*.class > raw_javap.txt")
-
-shutil.rmtree("input_dir")
 
 with open("raw_javap.txt", "r") as file:
     lines = file.read().splitlines()
@@ -91,25 +83,3 @@ with open("mapping.tiny", "w") as file:
     print("tiny\t2\t0\tobf\tnamed", file=file)
     for line in new_lines:
         print(line, file=file)
-
-os.system(f"java -jar jar-utils/tiny-remapper-0.14.1-fat.jar {input_jar} output.jar mapping.tiny obf named")
-os.system(f"unzip -o output.jar -d output_dir")
-if not os.path.exists("output_decompiled"):
-    os.mkdir("output_decompiled")
-os.system(f"java -jar jar-utils/vineflower.jar output.jar output_decompiled")
-os.system(f"unzip -o output.jar -d input_dir")
-os.system(f"javap -p -s -c input_dir/*.class > raw_javap.txt")
-if not os.path.exists("src"):
-    os.mkdir("src")
-if not os.path.exists("res"):
-    os.mkdir("res")
-if os.path.exists("META-INF"):
-    shutil.rmtree("META-INF")
-os.system(f"mv output_decompiled/META-INF .")
-os.system(f"mv output_decompiled/*.java src")
-os.system(f"mv output_decompiled/* res")
-os.remove("output.jar")
-os.remove("mapping.tiny")
-shutil.rmtree("input_dir")
-shutil.rmtree("output_dir")
-shutil.rmtree("output_decompiled")

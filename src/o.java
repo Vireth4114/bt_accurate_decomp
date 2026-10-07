@@ -503,6 +503,7 @@ public final class o extends GameCanvas implements Runnable, CommandListener {
    }
 
    public static void method_a_String_I_I_I_I_I_V(String var0, int var1, int var2, int var3, int var4, int var5) {
+      var1 = var1;
       byte var6;
       if (n_I == -1) {
          var6 = 0;

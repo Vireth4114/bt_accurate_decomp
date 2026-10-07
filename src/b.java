@@ -1,5 +1,5 @@
 public final class b {
-   public static final int a_I = o.b_I >>> 5;
+   public static final int a_I;
    private int d_I;
    private int e_I;
    private int f_I;
@@ -102,104 +102,98 @@ public final class b {
    }
 
    public final void method_a_I_I_I_I_V(int var1, int var2, int var3, int var4) {
-      boolean var11 = true;
       int var5 = this.j_I;
-      boolean var12 = false;
-      var4 = var4;
-      var3 = var3;
-      var2 = var2;
-      var1 = var1;
-      b var13 = this;
-      o.method_a_I_I_V(this.f_I, var13.g_I);
+      o.method_a_I_I_V(this.f_I, this.g_I);
       o.method_b_I_I_V(0, var3);
       o.method_b_I_I_V(1, var4);
-      if (var5 > var13.j_I) {
-         var5 = var13.j_I;
+      if (var5 > this.j_I) {
+         var5 = this.j_I;
       }
 
-      byte var20;
-      if ((var13.e_I & 48) == 32) {
-         var3 = var13.b_I / 2;
-         var20 = 17;
+      if ((this.e_I & 48) == 32) {
+         var3 = this.b_I / 2;
+         var4 = 17;
       } else {
          int var6;
-         if ((var13.e_I & 12) == 8) {
-            var6 = (var13.b_I - var13.i_I) / 2;
+         if ((this.e_I & 12) == 8) {
+            var6 = (this.b_I - this.i_I) / 2;
          } else {
             var6 = 0;
          }
 
-         if ((var13.e_I & 48) == 0) {
+         if ((this.e_I & 48) == 0) {
             var3 = var6;
-            var20 = 20;
+            var4 = 20;
          } else {
-            var3 = var13.b_I - var6;
-            var20 = 24;
+            var3 = this.b_I - var6;
+            var4 = 24;
          }
       }
 
-      boolean var22 = (var13.e_I & 48) == 0;
+      boolean var22 = (this.e_I & 48) == 0;
       byte var7 = 0;
       byte var8 = 0;
       int var9 = 0;
       int var10 = 0;
-      switch (var13.e_I & 12) {
+      switch (this.e_I & 12) {
          case 0:
             var8 = 20;
             var10 = 0;
             var7 = 20;
             if (var22) {
-               var9 = var13.l_I;
+               var9 = this.l_I;
             } else {
                var9 = 0;
             }
             break;
          case 4:
             var8 = 24;
-            var10 = var13.b_I;
+            var10 = this.b_I;
             var7 = 24;
             if (var22) {
-               var9 = var13.b_I;
+               var9 = this.b_I;
             } else {
-               var9 = var13.b_I - var13.l_I;
+               var9 = this.b_I - this.l_I;
             }
             break;
          case 8:
             var8 = 17;
-            var10 = var13.b_I / 2;
+            var10 = this.b_I / 2;
             if (var22) {
                var7 = 20;
-               var9 = (var13.b_I - var13.i_I) / 2 + var13.l_I;
+               var9 = (this.b_I - this.i_I) / 2 + this.l_I;
             } else {
                var7 = 24;
-               var9 = var13.b_I - (var13.b_I - var13.i_I) / 2 - var13.l_I;
+               var9 = this.b_I - (this.b_I - this.i_I) / 2 - this.l_I;
             }
       }
 
-      if (var13.d_I >= 0) {
-         o.method_a_I_I_I_I_V(var1 + var3, var2, var13.d_I, var20);
+      if (this.d_I >= 0) {
+         o.method_a_I_I_I_I_V(var1 + var3, var2, this.d_I, var4);
       }
 
-      if (!var13.a_Z) {
-         var2 += var13.k_I;
+      if (!this.a_Z) {
+         var2 += this.k_I;
       }
 
-      var3 = 0 * o.method_a_I_I(var13.f_I);
+      var3 = 0 * o.method_a_I_I(this.f_I);
 
-      for (int var21 = 0; var21 < var5; var21++) {
-         if (var13.a_ArrayString[var21 + 1] != null) {
-            if (var21 < var13.h_I) {
-               o.method_a_String_I_I_I_I_I_V(var13.a_ArrayString[var21 + 1], 0, var13.a_ArrayString[var21 + 1].length(), var1 + var9, var2 + var3, var7);
+      for (var4 = 0; var4 < var5; var4++) {
+         if (this.a_ArrayString[var4 + 1] != null) {
+            if (var4 < this.h_I) {
+               o.method_a_String_I_I_I_I_I_V(this.a_ArrayString[var4 + 1], 0, this.a_ArrayString[var4 + 1].length(), var1 + var9, var2 + var3, var7);
             } else {
-               o.method_a_String_I_I_I_I_I_V(var13.a_ArrayString[var21 + 1], 0, var13.a_ArrayString[var21 + 1].length(), var1 + var10, var2 + var3, var8);
+               o.method_a_String_I_I_I_I_I_V(this.a_ArrayString[var4 + 1], 0, this.a_ArrayString[var4 + 1].length(), var1 + var10, var2 + var3, var8);
             }
 
-            var3 += o.method_a_I_I(var13.f_I);
+            var3 += o.method_a_I_I(this.f_I);
          }
       }
    }
 
    static {
       char[] var10000 = new char[]{'\n', ' ', '-'};
+
+      a_I = o.b_I >>> 5;
    }
 }

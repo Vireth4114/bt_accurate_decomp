@@ -1,5 +1,6 @@
 build/
+build_proguard/
 dist/
 .idea/
 *.iml
-built_javap.txt
+*built_javap.txt

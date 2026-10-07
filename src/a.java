@@ -7,7 +7,8 @@ public final class a extends j {
    }
 
    public final int method_a_ArrayB_I_I(byte[] var1, int var2) {
-      return super.method_a_ArrayB_I_I(var1, var2);
+       var2 = super.method_a_ArrayB_I_I(var1, var2);
+       return var2;
    }
 
    public final void method_a_V() {
