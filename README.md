@@ -2,7 +2,7 @@
 
 Favoring accuracy over readability (if you want that use the far better (and bit more legal, don't bonk me Rovio) [decompilation by HelloOO7](https://github.com/HelloOO7/BounceTales))
 
-<sub>Uh currently this doesn't really work blep</sub>
+This works but I'm not sure how accurate it is
 
 ## Files
 
